@@ -2,7 +2,7 @@
 #Project specific git ignore
 test_data/
 test_scripts/
-demo_data/
+#demo_data/
 
 
 

@@ -13,6 +13,11 @@ import re
 # Load environment variables
 load_dotenv()
 
+def make_dir_if_not_exists():
+    """Create demo_data directory if it doesn't exist."""
+    if not os.path.exists('demo_data'):
+        os.makedirs('demo_data')
+
 def get_reddit_token():
     """Get Reddit access token using client credentials."""
     client_id = os.getenv('REDDIT_CLIENT_ID')
@@ -23,7 +28,7 @@ def get_reddit_token():
         print("Please add to .env file:")
         print("REDDIT_CLIENT_ID=your_client_id")
         print("REDDIT_CLIENT_SECRET=your_client_secret")
-        return None
+        #return None
     
     # Get access token
     #This url is the same for everyone, it's meant to get an access token
@@ -54,11 +59,12 @@ def get_reddit_token():
         return None
 
 def get_100_new_claude_posts():
-    """Get 100 newest posts from r/ClaudeAI with authentication."""
+    """Get 100 newest posts from r/ClaudeAI."""
     print("Getting 100 newest posts from r/ClaudeAI...")
     
     # Get access token
     token = get_reddit_token()
+    make_dir_if_not_exists()
     if not token:
         print("Falling back to public API (no authentication)...")
         # Use public API as fallback
@@ -97,19 +103,12 @@ def get_100_new_claude_posts():
         
         # Save to CSV
         df = pd.DataFrame(posts)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = f"100_new_claude_posts_{timestamp}.csv"
         df.to_csv(f"demo_data/{filename}", index=False)
-        
-        print(f"✅ Got {len(posts)} posts!")
-        print(f"✅ Saved to {filename}")
-        
-        # Show first few posts
-        print("\nFirst 3 posts:")
-        for i, post in enumerate(posts[:3]):
-            print(f"{i+1}. {post['title'][:60]}...")
-            print(f"   Score: {post['score']}, Comments: {post['num_comments']}")
-        
+
+        print(f"✅ Saved {len(posts)} posts to {filename}")
+    
         return True
         
     except Exception as e:
@@ -117,10 +116,11 @@ def get_100_new_claude_posts():
         return False
 
 def get_comments_for_latest_10_claude_posts():
-    """Fetch comments for the 10 newest posts in r/ClaudeAI."""
-    print("🔍 Fetching comments for 10 newest ClaudeAI posts...")
+    """Fetch comments for the 10 newest posts in r/ClaudeAI with authentication."""
+    print("Getting comments for 10 newest posts in r/ClaudeAI...")
 
     token = get_reddit_token()
+    make_dir_if_not_exists()
     if not token:
         print("❌ Cannot fetch comments without authentication.")
         return False
@@ -172,7 +172,7 @@ def get_comments_for_latest_10_claude_posts():
 
         # Save to CSV
         df = pd.DataFrame(comments_all)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = f"claude_comments_latest10_{timestamp}.csv"
         df.to_csv(f"demo_data/{filename}", index=False)
 
@@ -184,10 +184,11 @@ def get_comments_for_latest_10_claude_posts():
         return False
 
 def get_10_new_utah_posts_with_ai_keywords():
-    """Use Reddit's search endpoint to get 10 newest posts from r/Utah mentioning AI or ChatGPT."""
-    print("🔍 Using r/Utah search endpoint for 'AI' or 'ChatGPT' keywords...")
+    """Use Reddit's search endpoint to get 10 newest posts from r/Utah mentioning AI or ChatGPT with authentication."""
+    print("Getting posts in r/Utah with keywords 'AI' or 'ChatGPT'...")
 
     token = get_reddit_token()
+    make_dir_if_not_exists()
     if not token:
         print("❌ Cannot search without authentication.")
         return False
@@ -238,19 +239,18 @@ def get_10_new_utah_posts_with_ai_keywords():
 
         # Save to CSV
         df = pd.DataFrame(posts)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = f"utah_ai_posts_{timestamp}.csv"
         df.to_csv(f"demo_data/{filename}", index=False)
 
-        print(f"✅ Retrieved {len(posts)} posts. Saved to {filename}")
+        print(f"✅ Saved {len(posts)} posts to {filename}")
         return True
 
     except Exception as e:
         print(f"❌ Error during Reddit search request: {e}")
         return False
 
-
 if __name__ == "__main__":
-    #get_100_new_claude_posts() 
-    #get_comments_for_latest_10_claude_posts()
+    get_100_new_claude_posts() 
+    get_comments_for_latest_10_claude_posts()
     get_10_new_utah_posts_with_ai_keywords()

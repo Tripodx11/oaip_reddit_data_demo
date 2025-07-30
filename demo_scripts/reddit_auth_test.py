@@ -19,7 +19,12 @@ def main():
         headers=headers
     )
 
-    print("Status:", r.status_code)
-    print("Response:", r.text)
+    if r.status_code == 200:
+        print("Status:", r.status_code)
+        print("✅ Successfully authenticated with Reddit API")
+    else:
+        print("❌ Failed to authenticate with Reddit API")
+        print("Status:", r.status_code)
+        print("Response:", r.text)
 
 main()
