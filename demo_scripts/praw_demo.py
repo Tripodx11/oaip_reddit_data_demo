@@ -73,7 +73,7 @@ def get_comments_for_latest_10_claude_posts():
             })
 
     df = pd.DataFrame(comments_all)
-    filename = timestamped_filename("claude_comments_latest10")
+    filename = timestamped_filename("main_comments_10_new_claude_posts_")
     df.to_csv(f"demo_data/{filename}", index=False)
     print(f"✅ Saved {len(df)} comments to {filename}")
 
@@ -104,7 +104,7 @@ def get_10_new_utah_posts_with_ai_keywords():
         return
 
     df = pd.DataFrame(matches)
-    filename = timestamped_filename("utah_ai_posts")
+    filename = timestamped_filename("new_utah_ai_posts_")
     df.to_csv(f"demo_data/{filename}", index=False)
     print(f"✅ Saved {len(df)} posts to {filename}")
 

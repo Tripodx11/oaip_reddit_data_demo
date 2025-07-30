@@ -1,0 +1,74 @@
+post_title,post_url,comment_author,comment_body,comment_score,comment_created_utc
+6 Field‑Tested Rules I Wish I’d Known Before Shipping My First AI Agent,https://www.reddit.com/r/ClaudeAI/comments/1mdif01/6_fieldtested_rules_i_wish_id_known_before/,Kareja1,"I just ask mine nicely to build and get out of their way.  
+Makes beautiful chaos, at least.  
+[https://coder.chaoscodex.app/dear-corporate.html](https://coder.chaoscodex.app/dear-corporate.html)",1,1753910709.0
+Is Cursor better than VS Code when using Claude Code?,https://www.reddit.com/r/ClaudeAI/comments/1mdi7wr/is_cursor_better_than_vs_code_when_using_claude/,newtotheworld23,I use it with windsurf because their free plan includes autocomplete which I like to use. I do not use it's own ai agent at all,1,1753910813.0
+Experience with Claude and PHP/jQuery?,https://www.reddit.com/r/ClaudeAI/comments/1mdhnds/experience_with_claude_and_phpjquery/,Anthony_S_Destefano,"Few tips:
+
+1. Use context7 mcp and feed it php related docs
+2. Install Serena MCP and have it use code symbols instead of reading files (this saves on tokens too)
+3. run /init then ask Claude to walk the stack and document the flow in [flow.md](http://flow.md)
+4. then have claude compare [CLAUDE.md](http://CLAUDE.md) with [flow.md](http://flow.md) and create [doc.md](http://doc.md)
+5. now you should have all the context you need to feed about the tech in your app
+6. write a .claude/prd.md that includes what the task is you want to complete, and have a list of features you want or fixes. 7.. MOST IMPORTANT: in the prd include SUCCESS CRITERIA with numbered list of what the final outcome should be
+7. install playwrite MCP and tell it to test the app using the playwrite tool until the issues are fixed.
+
+Then start. fresh claude and have it read the doc files, and then tell it to read the [prd.md](http://prd.md) and create a task\_list.md of the work to complete and spawn sub agents who will follow the task list and update thier work in agent\_log.md file. coordinate the sub agents to complete teh task
+
+start with small requests for changes or new features.
+
+I ran claude today for 2 hours on one prompt using this method and it one-shotted copying my app template and [prd.md](http://prd.md) and created a new app with minor issue.
+
+NOTE: I DID NOT DEFINE SUB AGENT FILES!! i told Claude to ""spawn sub agents"" it figured out the correct system prompts to give on the fly.
+
+I find this is working better than defining sub agent files and uses less memory.
+
+Good luck.",1,1753910756.0
+Experience with Claude and PHP/jQuery?,https://www.reddit.com/r/ClaudeAI/comments/1mdhnds/experience_with_claude_and_phpjquery/,shadow-battle-crab,"I code in php jquery constantly, but ive been doing php/jquery for almost all code for all projects ive done professionally for nearly 20 years now, so this is all second nature to me.
+
+some code bases are just riddled with technical debt and whole subsections need to be analyzed and replaced.  What kind of issues are you having? i'm not sure what advice i can give here that would be useful.",1,1753911528.0
+Claude Cancer Research?,https://www.reddit.com/r/ClaudeAI/comments/1mdgrh2/claude_cancer_research/,Commercial_Ear_6989,"what's the format of data and how many tokens you'd need, do you have a mehanisim to combine your data into a the context limit without lossing accuracy? or chain of agents?",1,1753906051.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Forgive-My-Duck,"Ultimately it depends on the dynamic between the developer and the agent. There should be a two way communication stream where the agent would write code, and the user would confirm or make changes. I think this is how Claude Code (what I use) was intended to be used. And this holds, considering a lot of coding is really just language syntax. However, it is extremely easy to just delegate the coding completely to the agent. Then, yes, it takes forever to fix the code because you have no idea how it’s written. And to be honest, I am guilty of this…",3,1753904482.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Veraticus,"I think it depends very strongly on how you use it.
+
+If you pair program with it, it can save you significant time; it writes code much faster than I do personally, can use reference material far more rapidly, and I can corral it to do the proper thing if I see it going off-track. This process is like coding with a semi-lobotomized mid or senior programmer, who is superb at syntax, composition, and research but struggles to stay on task or make the correct architectural decisions.
+
+For example, I was fixing a Kubernetes controller we use, and I cloned all the Kubernetes API machinery stuff for it to use as a reference. It crawled through the reference code and completed an implementation that would have taken me hours of research in just minutes.
+
+If you give it a very specific task and a plan for implementing it, it still saves you time but you have to review all its output afterwards and correct it. It does have a tendency to create double implementations or make less-than-optimal architectural solutions, and you have to catch those before shipping. You can just point it to the bad parts and tell it what you want, though, and it will fix them. 
+
+If you give it a generic task and don't pay attention to it, you are in for disaster. So, unfortunately, the typical vibe-coding workflow.",2,1753905379.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Kwaig,"I'd say it took me about 1.5 months to get the hang of it, now it's more prompting and giving the right context then coding, iterate slowly.
+Every time I went Yolo, it back fired big time.
+
+Nowadays it gets it almost 100% right.
+
+For big important and compel changes I drive it myself very slowly.
+
+All this sub magnets noise, not for me at the moment.",2,1753906557.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,p0sterus,"Providing some Code of Conduct with Guidelines and best practices are referenced in the context (the model knows them, just a reference in the context is enough), you get amazing results.
+
+At Stanford, they did a case study showing a 15-20% efficiency boost provided you used a programming language that is popular enough so that there was enough publicly accessible data to train the models on. Accounting for the time since the study, where tools like claude code improved significantly, nowadays we ar eprobably closer to 40-50%.
+
+Check the full video: [https://www.youtube.com/watch?v=tbDDYKRFjhk](https://www.youtube.com/watch?v=tbDDYKRFjhk)  
+For a decent initial Code of Conduct based on your tech stack and agent of choice check the tool I've built: [https://tinytoolstack.com/app/instructionsgeneratorforagenticcoding](https://tinytoolstack.com/app/instructionsgeneratorforagenticcoding)",2,1753907058.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,JohnnyKonig,"I've been using VS Code + CoPilot (GPT 4.1) for a while and I am in this sub because I've been testing Claude Code for a while and switching over (keeping VS Code as my IDE).
+
+I have definitely experience what you are talking about, but as others have said it depends largely on your expectations and what you ask of it. I've been a tech lead for a long time and it often feels similar to leading a mid-senior contractor as a dev. It makes a lot of mistakes, would rather ""be done"" than ""do it right"", and sometimes I want to say f-it and just do it myself.
+
+However, just like being a good tech lead this reflects more about me than the agent/contractor. I have to understand the limitations and figure out how to work within that to be productive. As far as Claude Code goes, the major advantage here (and primary reason I am transitioning from co-pilot) is that I have had more luck managing context within various .md files so that I can focus on telling my agent how I want things done once.
+
+Ultimately, my suggestions to you are to continue investing in using AI agents and learn how to get better at ""leading them"" to success. On a technical level this means using context more. Sometimes it also means being open to the agent being correct you having to change. For example, if the agent is ""refactoring things that really shouldn’t be touched"" - well maybe you're right and it's not worth changing legacy code, but this also might mean that the new guy sees ways of doing something better and you should consider getting on board.",2,1753909539.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,notq,"The difference between being good at the tools and not is a massive difference. No amount of anyone telling you their experience will help bridge that gap.
+
+Yes, it saves me tons of time and does tons of work far quicker. I always have something running on the side while I work on a parallel different task.
+
+But you have to know how to use hooks, agents, lots of linting and checks, etc",1,1753907176.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Popular_Brief335,Literally get good,1,1753908377.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,AIForOver50Plus,"It depend on your perspective & vantage point ie, are you looking at it short term or long term. Initially there will be clean up as you better tune & work out kinks, and yes there will be kinks… plus this is stochastic so, what you see today may be different than what you see tomorrow even with the same variables & objectives, but over time both the model, the flow, the Evals get better and you get the savings promised. IMO",1,1753910930.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Eclectika,Wasn't it that recent MIT report that said it adds around a 20% overhead?  However if you get it to document as you go then it's a winner - unless you like writing documents of course...,1,1753911341.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Altruistic_Worker748,"Same, I have become so lazy that I wont even do a find and replace, which will take me 3 seconds but will take AI 10 seconds, I need to look at myself",1,1753905433.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,andrew19953,"Yeah. I always tell people you should manually review each line before accepting them but well.. It takes 1 minute to review, but 1 second to accept. lol",1,1753907237.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,andrew19953,I don't give generic tasks. But sometimes I hope it does some basic checks before asking me to review,1,1753908037.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,andrew19953,"Thanks for your thoughts. I am still trying to find the engineering effort balance of using AI. Right now, I need to hook up some basic tests or let it run in a way at least junior devs can do. Like a ready-to-review PR. I also hate the back and forth of copying the failed tests and then apply the changes",1,1753910232.0
+"Do AI coding agents actually save you time, or just create more cleanup?",https://www.reddit.com/r/ClaudeAI/comments/1mdg6xm/do_ai_coding_agents_actually_save_you_time_or/,Veraticus,"Ah, it definitely doesn't do that either; it will forget instructions to do so. But at least with Claude Code, we have hooks, which are very helpful at keeping it honest and providing immediate, programmatic feedback. Allow me to shill my hooks here: https://github.com/Veraticus/nix-config/tree/main/home-manager/claude-code/hooks",1,1753908412.0

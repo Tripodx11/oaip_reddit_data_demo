@@ -173,7 +173,7 @@ def get_comments_for_latest_10_claude_posts():
         # Save to CSV
         df = pd.DataFrame(comments_all)
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = f"claude_comments_latest10_{timestamp}.csv"
+        filename = f"main_comments_10_new_claude_posts_{timestamp}.csv"
         df.to_csv(f"demo_data/{filename}", index=False)
 
         print(f"✅ Saved {len(comments_all)} comments from 10 posts to {filename}")
@@ -240,7 +240,7 @@ def get_10_new_utah_posts_with_ai_keywords():
         # Save to CSV
         df = pd.DataFrame(posts)
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = f"utah_ai_posts_{timestamp}.csv"
+        filename = f"new_utah_ai_posts_{timestamp}.csv"
         df.to_csv(f"demo_data/{filename}", index=False)
 
         print(f"✅ Saved {len(posts)} posts to {filename}")
