@@ -38,7 +38,7 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory with your Reddit API credentials received in the previous step:
 
 ```
-REDDIT_CLIENT_ID=your_client_id_hereKv
+REDDIT_CLIENT_ID=your_client_id_here
 REDDIT_CLIENT_SECRET=your_client_secret_here
 ```
 The `.env` file is ignored by git to protect your credentials
@@ -60,7 +60,7 @@ This script tests your Reddit API Credentials and will print whether they are va
 This script performs three tasks:
 
 1. Collects the 100 newest posts from **r/ClaudeAI**
-2. Fetches comments for the 10 newest posts in **r/ClaudeAI**
+2. Fetches the main comments (no replies to comments, just the highest level ones) for the 10 newest posts in **r/ClaudeAI**
 3. Searches for the 50 newest posts in **r/Utah** with keywords like `"ai"` or `"chat gpt"` and then excluded matches like `"said"` or `"email"`
 
 ### `praw_demo.py`
@@ -69,7 +69,21 @@ This is the exact same as the `claude_utah_posts_demo.py` script except it uses 
 
 ## Output
 
-CSV files are saved to the `demo_data/` directory with timestamps.
+- CSV files are saved to the `demo_data/` directory with timestamps.
+- Column names and meaning for post csv files:
+  - title: title of the post
+  - author: username of author of post
+  - score: number of upvotes post has
+  - num_comments: number of comments post has
+  - created_utc: used to determine date of the post (it's time in seconds since Jan 1, 1970)
+  - url: url to any attachments in the post (defaults to post link if none)
+  - permalink: link to the post
+  - selftext: the body text of the post. 
+- Column names and menaing for comment csv file:
+  - post_title: title of post comment came from
+  - post_url: link to the post comment came from
+  - comment_author: usersame of comment author
+  - comment_body: body text of comment
 
 ## Notes
 
